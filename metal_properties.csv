@@ -1,0 +1,9 @@
+Metal,Extraction_Method,Delta G (kJ/mol),Electrode Potential (V),Enthalpy (kJ/mol),Ore Grade (%),Melting Point (C),Boiling Point (C)
+Aluminum,Electrolysis,900.0,-1.66,1170,40.0,660.0,2519
+Copper,Pyrometallurgy,-146.0,0.34,219,1.2,1085.0,2562
+Lithium,Hydrometallurgy,300.0,-3.04,650,1.5,180.5,1342
+Nickel,Combo,-50.0,-0.25,400,2.0,1455.0,2913
+Zinc,Roast+Electro,-230.0,-0.76,348,8.0,419.5,907
+Cobalt,Combo,-225.0,-0.28,375,0.5,1495.0,2927
+Platinum,Smelting,,1.18,1000,0.001,1768.0,3825
+Gold,Cyanidation,,1.5,800,0.0005,1064.0,2856
