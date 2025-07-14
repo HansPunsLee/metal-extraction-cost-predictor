@@ -46,15 +46,16 @@ st.title("🛠️ Metal Extraction Cost Predictor")
 
 # Metal images hosted on GitHub or locally in repo folder 'images/'
 metal_images = {
-    "Aluminum (Al)": "https://raw.githubusercontent.com/HansPunsLee/metal-extraction-cost-predictor/main/images/aluminum.png",
-    "Copper (Cu)": "https://raw.githubusercontent.com/HansPunsLee/metal-extraction-cost-predictor/main/images/copper.png",
-    "Lithium (Li)": "https://raw.githubusercontent.com/HansPunsLee/metal-extraction-cost-predictor/main/images/lithium.png",
-    "Nickel (Ni)": "https://raw.githubusercontent.com/HansPunsLee/metal-extraction-cost-predictor/main/images/nickel.png",
-    "Zinc (Zn)": "https://raw.githubusercontent.com/HansPunsLee/metal-extraction-cost-predictor/main/images/zinc.png",
-    "Cobalt (Co)": "https://raw.githubusercontent.com/HansPunsLee/metal-extraction-cost-predictor/main/images/cobalt.png",
-    "Platinum (Pt)": "https://raw.githubusercontent.com/HansPunsLee/metal-extraction-cost-predictor/main/images/platinum.png",
-    "Gold (Au)": "https://raw.githubusercontent.com/HansPunsLee/metal-extraction-cost-predictor/main/images/gold.png",
+    "Aluminum (Al)": "https://upload.wikimedia.org/wikipedia/commons/8/85/Aluminium_eloi.jpg",
+    "Copper (Cu)": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Copper_ingots_Picryl.jpg",
+    "Lithium (Li)": "https://upload.wikimedia.org/wikipedia/commons/5/59/Lithium_in_oil.jpg",
+    "Nickel (Ni)": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Nickel_crystals.jpg",
+    "Zinc (Zn)": "https://upload.wikimedia.org/wikipedia/commons/5/57/Zinc_plates.jpg",
+    "Cobalt (Co)": "https://upload.wikimedia.org/wikipedia/commons/4/47/Cobalt_crystals.jpg",
+    "Platinum (Pt)": "https://upload.wikimedia.org/wikipedia/commons/5/52/Platinum_bar.jpg",
+    "Gold (Au)": "https://upload.wikimedia.org/wikipedia/commons/0/09/Gold_Nuggets.jpg"
 }
+
 
 # Metal properties dictionary
 metal_data = {
