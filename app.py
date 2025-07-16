@@ -146,8 +146,10 @@ with cols[1]:
     boiling_point = st.number_input("Boiling Point (C)", value=float(metal_data[metal_choice]["Boiling Point (C)"]), step=1.0, format="%.2f", help="Temperature at which metal boils")
 
 # Reset button to reset inputs to default values
-if st.button("Reset to default values"):
+if st.button("Reset All Inputs"):
+    st.session_state.clear()
     st.experimental_rerun()
+
 
 # Prepare input dataframe
 features = [
