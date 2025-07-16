@@ -205,7 +205,7 @@ unit = st.radio("Select market price unit:", ["$/ton", "$/oz"])
 
 # Input for market price
 market_price_input = st.number_input(
-    f"Enter current market price for {metal_symbol} ({unit}):",
+    f"Enter current market price for {metal_choice} ({unit}):",
     min_value=0.0,
     value=0.0,
     step=10.0
