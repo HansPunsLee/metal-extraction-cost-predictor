@@ -148,7 +148,7 @@ with cols[1]:
 # Reset button to reset inputs to default values
 if st.button("Reset All Inputs"):
     st.session_state.clear()
-    st.experimental_rerun()
+    st.rerun()
 
 
 # Prepare input dataframe
