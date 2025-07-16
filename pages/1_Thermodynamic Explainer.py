@@ -101,34 +101,39 @@ if st.button("▶️ Animate Curve"):
 # Scatter Plot: ΔG₃₀₀K vs Cost
 # ---------------------------------------
 st.markdown("---")
-st.title("📊 ΔG at 300K vs Extraction Cost")
+st.header("📊 ΔG at 300K vs Extraction Cost")
 
-st.markdown(
-    "This chart shows how thermodynamic favorability (ΔG at 300 K) correlates with real-world metal extraction cost. "
-    "**Lower ΔG doesn't always mean lower cost**, because industrial factors (e.g. ore quality, energy source) also matter."
-)
+st.markdown("""
+This chart shows how thermodynamic favorability (ΔG at 300 K) correlates with real-world metal extraction cost.
 
-# Prepare data
-metal_names = []
-g300_values = []
-cost_values = []
+**Note**: Lower ΔG doesn’t always mean lower cost, because of other industrial factors (ore grade, electricity cost, etc.).
+""")
 
-for metal, data in metal_data.items():
-    g_300 = data["ΔH"] - 300 * data["ΔS"]
-    metal_names.append(metal)
-    g300_values.append(g_300)
-    cost_values.append(data["cost"])
+try:
+    # Prepare data
+    metal_names = []
+    g300_values = []
+    cost_values = []
 
-# Plotting
-fig, ax = plt.subplots()
-ax.scatter(g300_values, cost_values)
+    for metal, data in metal_data.items():
+        g_300 = data["ΔH"] - 300 * data["ΔS"]
+        metal_names.append(metal)
+        g300_values.append(g_300)
+        cost_values.append(data["cost"])
 
-# Annotate each point
-for i, metal in enumerate(metal_names):
-    ax.annotate(metal, (g300_values[i], cost_values[i]), textcoords="offset points", xytext=(5,5), ha='left')
+    fig, ax = plt.subplots()
+    ax.scatter(g300_values, cost_values, color='purple', s=80, alpha=0.7)
 
-ax.set_xlabel("ΔG at 300K (kJ/mol)")
-ax.set_ylabel("Estimated Extraction Cost ($/ton)")
-ax.set_title("ΔG₃₀₀K vs Extraction Cost for Metal Oxides")
+    # Annotate points
+    for i, metal in enumerate(metal_names):
+        ax.annotate(metal, (g300_values[i], cost_values[i]), textcoords="offset points", xytext=(6,6), ha='left')
 
-st.pyplot(fig)
+    ax.set_xlabel("ΔG at 300K (kJ/mol)")
+    ax.set_ylabel("Estimated Extraction Cost ($/ton)")
+    ax.set_title("ΔG₃₀₀K vs Extraction Cost for Metal Oxides")
+
+    st.pyplot(fig)
+
+except Exception as e:
+    st.error(f"⚠️ Plot failed: {e}")
+
