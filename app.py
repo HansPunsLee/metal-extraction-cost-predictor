@@ -4,6 +4,16 @@ import joblib
 import numpy as np
 import io
 
+st.set_page_config(
+    page_title="Metal Extraction Cost Calculator",
+    page_icon="🧮",
+    layout="wide"
+)
+
+st.title("🧮 Metal Extraction Cost Calculator")
+st.caption("Estimate the extraction cost of metal oxides based on thermodynamic data and ML models.")
+
+
 # Load trained model
 model = joblib.load("extraction_cost_model.pkl")
 
