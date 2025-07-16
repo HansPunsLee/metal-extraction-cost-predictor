@@ -64,64 +64,64 @@ metal_data = {
         "Electrode Potential (V)": -1.66,
         "Enthalpy (kJ/mol)": 1170,
         "Ore Grade (%)": 40,
-        "Melting Point (°C)": 660,
-        "Boiling Point (°C)": 2519
+        "Melting Point (C)": 660,
+        "Boiling Point (C)": 2519
     },
     "Copper (Cu)": {
         "Delta G (kJ/mol)": -146,
         "Electrode Potential (V)": 0.34,
         "Enthalpy (kJ/mol)": 219,
         "Ore Grade (%)": 1.2,
-        "Melting Point (°C)": 1085,
-        "Boiling Point (°C)": 2562
+        "Melting Point (C)": 1085,
+        "Boiling Point (C)": 2562
     },
     "Lithium (Li)": {
         "Delta G (kJ/mol)": 300,
         "Electrode Potential (V)": -3.04,
         "Enthalpy (kJ/mol)": 650,
         "Ore Grade (%)": 1.5,
-        "Melting Point (°C)": 180.5,
-        "Boiling Point (°C)": 1342
+        "Melting Point (C)": 180.5,
+        "Boiling Point (C)": 1342
     },
     "Nickel (Ni)": {
         "Delta G (kJ/mol)": -50,
         "Electrode Potential (V)": -0.25,
         "Enthalpy (kJ/mol)": 400,
         "Ore Grade (%)": 2,
-        "Melting Point (°C)": 1455,
-        "Boiling Point (°C)": 2913
+        "Melting Point (C)": 1455,
+        "Boiling Point (C)": 2913
     },
     "Zinc (Zn)": {
         "Delta G (kJ/mol)": -230,
         "Electrode Potential (V)": -0.76,
         "Enthalpy (kJ/mol)": 348,
         "Ore Grade (%)": 8,
-        "Melting Point (°C)": 419.5,
-        "Boiling Point (°C)": 907
+        "Melting Point (C)": 419.5,
+        "Boiling Point (C)": 907
     },
     "Cobalt (Co)": {
         "Delta G (kJ/mol)": -225,
         "Electrode Potential (V)": -0.28,
         "Enthalpy (kJ/mol)": 375,
         "Ore Grade (%)": 0.5,
-        "Melting Point (°C)": 1495,
-        "Boiling Point (°C)": 2927
+        "Melting Point (C)": 1495,
+        "Boiling Point (C)": 2927
     },
     "Platinum (Pt)": {
         "Delta G (kJ/mol)": 0,  # Replace None with 0 for safety
         "Electrode Potential (V)": 1.18,
         "Enthalpy (kJ/mol)": 1000,
         "Ore Grade (%)": 0.001,
-        "Melting Point (°C)": 1768,
-        "Boiling Point (°C)": 3825
+        "Melting Point (C)": 1768,
+        "Boiling Point (C)": 3825
     },
     "Gold (Au)": {
         "Delta G (kJ/mol)": 0,
         "Electrode Potential (V)": 1.50,
         "Enthalpy (kJ/mol)": 800,
         "Ore Grade (%)": 0.0005,
-        "Melting Point (°C)": 1064,
-        "Boiling Point (°C)": 2856
+        "Melting Point (C)": 1064,
+        "Boiling Point (C)": 2856
     }
 }
 
@@ -142,8 +142,8 @@ with cols[0]:
     enthalpy = st.number_input("Enthalpy (kJ/mol)", value=float(metal_data[metal_choice]["Enthalpy (kJ/mol)"]), step=1.0, format="%.2f", help="Enthalpy change during extraction")
 with cols[1]:
     ore_grade = st.number_input("Ore Grade (%)", value=float(metal_data[metal_choice]["Ore Grade (%)"]), min_value=0.0001, max_value=100.0, step=0.01, format="%.4f", help="Percentage of metal in ore")
-    melting_point = st.number_input("Melting Point (°C)", value=float(metal_data[metal_choice]["Melting Point (°C)"]), step=1.0, format="%.2f", help="Temperature at which metal melts")
-    boiling_point = st.number_input("Boiling Point (°C)", value=float(metal_data[metal_choice]["Boiling Point (°C)"]), step=1.0, format="%.2f", help="Temperature at which metal boils")
+    melting_point = st.number_input("Melting Point (C)", value=float(metal_data[metal_choice]["Melting Point (C)"]), step=1.0, format="%.2f", help="Temperature at which metal melts")
+    boiling_point = st.number_input("Boiling Point (C)", value=float(metal_data[metal_choice]["Boiling Point (C)"]), step=1.0, format="%.2f", help="Temperature at which metal boils")
 
 # Reset button to reset inputs to default values
 if st.button("Reset to default values"):
@@ -155,8 +155,8 @@ input_df = pd.DataFrame([{
     "Electrode Potential (V)": electrode_potential,
     "Enthalpy (kJ/mol)": enthalpy,
     "Ore Grade (%)": ore_grade,
-    "Melting Point (°C)": melting_point,
-    "Boiling Point (°C)": boiling_point
+    "Melting Point (C)": melting_point,
+    "Boiling Point (C)": boiling_point
 }])
 
 # Predict button
