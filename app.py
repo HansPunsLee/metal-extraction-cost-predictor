@@ -198,3 +198,50 @@ if st.button("Predict Extraction Cost"):
         file_name=f"{metal_choice.replace(' ', '_')}_extraction_cost.csv",
         mime="text/csv"
     )
+st.markdown("### 💹 Market Comparison")
+
+# Select pricing unit
+unit = st.radio("Select market price unit:", ["$/ton", "$/oz"])
+
+# Input for market price
+market_price_input = st.number_input(
+    f"Enter current market price for {metal_symbol} ({unit}):",
+    min_value=0.0,
+    value=0.0,
+    step=10.0
+)
+
+# Conversion factor
+oz_per_ton = 32150.7
+
+# Convert user-entered market price to $/ton
+if unit == "$/oz":
+    market_price = market_price_input * oz_per_ton
+else:
+    market_price = market_price_input
+
+# Get predicted cost from model
+if prediction and market_price:
+    cost_estimate_ton = prediction
+    cost_estimate_oz = cost_estimate_ton / oz_per_ton
+
+    if unit == "$/ton":
+        displayed_cost = cost_estimate_ton
+        delta = market_price - cost_estimate_ton
+        st.metric(label="Estimated Cost ($/ton)", value=f"${cost_estimate_ton:.2f}")
+        st.metric(label="Market Price ($/ton)", value=f"${market_price:.2f}", delta=f"${delta:.2f}")
+    else:
+        displayed_cost = cost_estimate_oz
+        market_price_oz = market_price / oz_per_ton
+        delta = market_price_oz - cost_estimate_oz
+        st.metric(label="Estimated Cost ($/oz)", value=f"${cost_estimate_oz:.2f}")
+        st.metric(label="Market Price ($/oz)", value=f"${market_price_oz:.2f}", delta=f"${delta:.2f}")
+
+    # Profitability Insight
+    if delta > 0:
+        st.success("📈 Market price is **higher** than estimated cost → POTENTIALLY PROFITABLE")
+    elif delta < 0:
+        st.error("📉 Market price is **lower** than estimated cost → POTENTIAL LOSS")
+    else:
+        st.info("⚖️ Market price equals estimated cost → Break-even")
+
