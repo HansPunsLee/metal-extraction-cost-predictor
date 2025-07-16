@@ -150,6 +150,15 @@ if st.button("Reset to default values"):
     st.experimental_rerun()
 
 # Prepare input dataframe
+features = [
+    "Delta G (kJ/mol)",
+    "Electrode Potential (V)",
+    "Enthalpy (kJ/mol)",
+    "Ore Grade (%)",
+    "Melting Point (C)",
+    "Boiling Point (C)"
+]
+
 input_df = pd.DataFrame([{
     "Delta G (kJ/mol)": delta_g,
     "Electrode Potential (V)": electrode_potential,
@@ -157,7 +166,7 @@ input_df = pd.DataFrame([{
     "Ore Grade (%)": ore_grade,
     "Melting Point (C)": melting_point,
     "Boiling Point (C)": boiling_point
-}])
+}])[features]
 
 # Predict button
 if st.button("Predict Extraction Cost"):
