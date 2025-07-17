@@ -4,6 +4,7 @@ import joblib
 import numpy as np
 import io
 
+prediction = None #Initialising Variable
 st.set_page_config(
     page_title="Metal Extraction Cost Calculator",
     page_icon="🧮",
@@ -20,7 +21,7 @@ model = joblib.load("extraction_cost_model.pkl")
 # Assume MAE from your model training (adjust as needed)
 MODEL_MAE = 120  # example MAE in $
 
-st.set_page_config(page_title="Metal Extraction Cost Predictor", layout="wide")
+#st.set_page_config(page_title="Metal Extraction Cost Predictor", layout="wide")
 
 # Custom CSS styling
 st.markdown("""
@@ -221,7 +222,7 @@ else:
     market_price = market_price_input
 
 # Get predicted cost from model
-if prediction and market_price:
+if prediction is not None and market_price:
     cost_estimate_ton = prediction
     cost_estimate_oz = cost_estimate_ton / oz_per_ton
 
